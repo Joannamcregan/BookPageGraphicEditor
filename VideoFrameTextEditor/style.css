@@ -1,0 +1,294 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #333;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    overflow-x: hidden;
+}
+
+.input-section{
+    width: 400px;
+    height: 580px;
+    margin: 50px 0 50px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+}
+
+.input-main{
+    width: 400px;
+    height: 500px;
+}
+
+.controll-section{
+    width: 100%;
+    height: 90px;
+    margin-bottom: 10px;
+    background: #999;
+    border-radius: 5px;
+}
+
+textarea{
+    width: 100%;
+    height: 360px;
+    border-radius: 5px;
+    border: solid #999 5px;
+    background: white;
+    box-shadow: #00000059 0px 5px 15px;
+}
+
+.input-extra{
+    height: 60px;
+    width: 400px;
+    background: #999;
+    margin-top: 10px;
+}
+
+.heading-wrapper{
+    background: #333;
+    padding-bottom: 10px;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    top: 0;
+}
+
+h2{
+    text-align: center;
+    color: rgb(213, 213, 213);
+    width: 100%;
+}
+
+#output-section{
+    margin: 0px 50px 50px 50px;
+    display: grid;
+}
+
+.output-section-small{
+    width: 324px;
+    height: 576px;
+}
+
+.output-section-large{
+    height: 110%;
+    width: 110%;
+    margin: 0;
+}
+
+#tablet{
+    background-image: linear-gradient(black, #333, #111, black);
+    border-radius: 10px;
+    grid-column: 5 / span 6;
+    grid-row: 1;
+    z-index: 2;
+    transform: rotate(8deg);
+    box-shadow: 2px 8px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: solid 1px black;
+    margin: 100px 60px 0 auto;
+}
+
+
+.tablet-small{
+    width: 225px;
+    height: 345px;
+}
+
+#page{    
+    margin: 15px auto auto auto;
+    border-radius: 5px;
+    background: white;
+}
+
+.page-small{
+    width: 203px;
+    height: 304px;
+}
+
+#download-button{
+    margin: 20px 50px 0 0;
+    padding: 10px;
+    border-radius: 5px;
+    height: fit-content;
+    width: fit-content;
+    background: rgb(166, 255, 254)
+}
+
+.background-option-section{
+    width: 330px;
+    height: 576px;
+    margin: 50px 0 50px 50px;
+    background: #999;
+}
+
+#background-options{
+    width: 330px;
+    height: 535px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.background-option{
+    padding: 10px 25px 10px 25px;
+    margin: 10px auto 20px auto;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    background: none;
+    border: none;
+}
+
+.background-sample{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    border: solid black 2px;
+    border-radius: 50%;
+}
+
+.background-option p{
+    text-align: center;
+    margin: 0 auto 0 auto;
+    max-width: 100px;
+}
+
+.background-plain{
+    background: white;
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-gold-sheet{
+    background-image: url("img/goldSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-rosegold-sheet{
+    background-image: url("img/rosegoldSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-silver-sheet{
+    background-image: url("img/silverSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-fur-blanket{
+    background-image: url("img/furBlanketBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-plaid-blanket{
+    background-image: url("img/plaidBlanketBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-red-violet-ink{
+    background-image: url("img/redVioletInkBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-glitter-confetti{
+    background-image: url("img/glitterConfettiBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-pastel-glitter{
+    background-image: url("img/pastelGlitterBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-gold-foil{
+    background-image: url("img/goldFoilBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-green-and-orange-watercolor{
+    background-image: url("img/greenAndOrangeWatercolorBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-slate-blue-watercolor{
+    background-image: url("img/slateBlueWatercolorBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-marbled-ink{
+    background-image: url("img/marbledInkBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-jagged-marble{
+    background-image: url("img/jaggedMarbleBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-wood{
+    background-image: url("img/woodBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-amber-space{
+    background-image: url("img/amberSpaceBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-indigo-space{
+    background-image: url("img/indigoSpaceBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-calm-clouds{
+    background-image: url("img/calmCloudsBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-clear-sunset{
+    background-image: url("img/clearSunsetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-calm-water{
+    background-image: url("img/calmWaterBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-black-steam{
+    background-image: url("img/blackSteamBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-black-rain{
+    background-image: url("img/blackRainBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
