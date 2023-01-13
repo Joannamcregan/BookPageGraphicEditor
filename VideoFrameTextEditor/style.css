@@ -18,39 +18,114 @@ body{
     width: 400px;
     height: 580px;
     margin: 50px 0 50px 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex-wrap: wrap-reverse;
 }
 
-.input-main{
+#input-heading{
+    margin-top: 3px;
+}
+
+.input-extra input{
     width: 400px;
-    height: 500px;
+    border: solid #999 5px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 5px;
 }
 
 .controll-section{
+    display: block;
     width: 100%;
-    height: 90px;
+    height: fit-content;
     margin-bottom: 10px;
-    background: #999;
+    background: white;
+    border: solid #999 5px;
     border-radius: 5px;
 }
 
+.col{
+    display: inline-block;
+}
+
+.box input[type=number]{
+    width: 40px;
+    text-align: center;
+    margin: 5px 0px 5px 5px;
+    padding: 2px 0;
+    cursor: pointer;
+    border: none;
+    border-right: solid #999 1px;
+}
+
+.box input[type=text]{
+    width: 120px;
+    text-align: left;
+    margin: 5px 0px 5px 5px;
+    padding: 2px 2px;
+    cursor: pointer;
+    border: none;
+    border-right: solid #999 1px;
+}
+
+.controll-button{
+    padding: 2px 5px;
+    margin: 5px 0px 5px 3px;
+    cursor: pointer;
+    border: none;
+    border-right: solid #999 1px;
+    background: white;
+}
+
+.controll-section span{
+    font-size: 16px;
+}
+
+i{
+    font-size: 16px;
+}
+
+#font-highlight{
+    padding: 2px 0;
+}
+
+#font-highlight span{
+    background: yellow;
+    padding: 1px 5px;
+}
+
+#font-outline{
+    text-shadow: 0 0 2px #FF0000;
+}
+
+#font-shadow{
+    text-shadow: 1px 1px 3px #454545;
+}
+
 textarea{
-    width: 100%;
-    height: 360px;
+    width: 203px;
+    height: 304px;
+    margin: 5px auto 10px auto;
     border-radius: 5px;
     border: solid #999 5px;
     background: white;
     box-shadow: #00000059 0px 5px 15px;
 }
 
-.input-extra{
-    height: 60px;
-    width: 400px;
-    background: #999;
-    margin-top: 10px;
+.visible{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+#toggle-cover-text{
+    width: 60%;
+    padding: 5px 0;
+    margin: 10px 20%;
+    text-align: center;
+    border: solid black 5px;
+    border-radius: 5px;
 }
 
 .heading-wrapper{
@@ -126,7 +201,7 @@ h2{
     width: 330px;
     height: 576px;
     margin: 50px 0 50px 50px;
-    background: #999;
+    background: #999;   
 }
 
 #background-options{
@@ -135,6 +210,11 @@ h2{
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
+    overflow-x: hidden;
+    border-top: solid 5px #999;
+    border-right: solid 5px #999;
+    border-left: solid 5px #999;
+    border-bottom: none;
 }
 
 .background-option{
@@ -145,6 +225,23 @@ h2{
     display: inline-block;
     background: none;
     border: none;
+}
+
+#own-background{
+    width: 280px;
+    height: fit-content;
+    margin: 10px 5%;
+    padding: 10px 5px;
+    border: solid black 2px;
+    border-radius: 5px;
+}
+
+#add-own-background{
+    width: 20%;
+    padding: 5px 0;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin: 0 40%;
 }
 
 .background-sample{

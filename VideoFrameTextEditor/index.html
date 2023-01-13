@@ -10,26 +10,98 @@
     <script src="https://kit.fontawesome.com/9d40013081.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="input-section">
-        <div class="input-extra">
-            <form type="text" aria-placeholder="Book title and author name (optional)"></form>
-        </div>
-        <div class="input-main">
-            <div class="heading-wrapper">
-                <h2>Enter and format your text</h2>
-            </div>  
+    <div class="input-section">        
+        <div class="heading-wrapper">
+            <h2 id="input-heading">Enter and format your text</h2>
+        </div>  
+        <div class="controll-section visible">
             <div class="row">
-                <div class="controll-section">
+                <div class="col">
+                    <div class="first box">
+                        <input 
+                        type="text"
+                        id="font"
+                        value="arial"                        
+                        onchange="f1(this)">
+                    </div>
                 </div>
-                <textarea></textarea>
-            </div>
+                <div class="col">
+                    <div class="second box">
+                        <input 
+                        type="number"
+                        id="font-size"
+                        min="1"
+                        max="100"
+                        value="16"                        
+                        onchange="f2(this)">
+                    </div>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="bold" onclick="f3(this)">
+                        <i class="fa-solid fa-bold"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="italic" onclick="f4(this)">
+                        <i class="fa-solid fa-italic"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="underline" onclick="f5(this)">
+                        <i class="fa-solid fa-underline"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="font-color" onclick="f6(this)">
+                        <span><strong>A</strong></span>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="font-highlight" onclick="f7(this)">
+                        <span><strong>A</strong></span>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="font-outline" onclick="f8(this)">
+                        <span><strong>A</strong></span>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="controll-button" id="font-shadow" onclick="f9(this)">
+                        <span><strong>A</strong></span>
+                    </button>
+                </div>
+            </div>                
+        </div>
+        <textarea class="visible"></textarea>
+        <div id="cover-section" class="hidden">
+            <input 
+                type="text"
+                id="own-cover"
+                placeholder="paste the URL for your cover here"                       
+                onchange="f11(this)">
+            <button id="add-cover">submit</button>
+        </div>   
+        <div class="input-extra">
+            <input type="text" placeholder="Book title and author name (optional)"></input>
+        </div> 
+        <div class="input-extra">
+            <button id="toggle-cover-text">show book cover instead of text</button>
         </div>        
     </div>
     <div class="background-option-section">
         <div class="heading-wrapper">
             <h2>Select a background</h2>
-        </div>        
+        </div>             
         <div id="background-options">
+            <div>
+                <input 
+                    type="text"
+                    id="own-background"
+                    placeholder="or paste the URL for your own image here"                       
+                    onchange="f10(this)">
+                <button id="add-own-background">submit</button>
+            </div>            
             <button class="background-option">
                 <div class="background-sample background-plain"></div>
                 <p>Plain</p>                  
