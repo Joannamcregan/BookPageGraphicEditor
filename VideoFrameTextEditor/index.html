@@ -14,19 +14,18 @@
         <div class="heading-wrapper">
             <h2 id="input-heading">Enter and format your text</h2>
         </div>  
-        <div class="controll-section visible">
-            <div class="row">
-                <div class="col">
-                    <div class="first box">
-                        <input 
+        <div class="input-extra" onclick="toggleInput()">
+            <button id="toggle-cover-text">display book cover instead of text</button>
+        </div>
+        <div id="paragraph-input-section">
+            <div class="paragraph-input" id="paragraph-input-0">
+                <textarea class="text-input" placeholder="Enter a paragraph from your page here."></textarea>
+                <div class="controll-section" id="controll-section-0">
+                    <input 
                         type="text"
                         id="font"
                         value="arial"                        
                         onchange="f1(this)">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="second box">
                         <input 
                         type="number"
                         id="font-size"
@@ -34,159 +33,145 @@
                         max="100"
                         value="16"                        
                         onchange="f2(this)">
-                    </div>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="bold" onclick="f3(this)">
-                        <i class="fa-solid fa-bold"></i>
+                    <input
+                        type="color"
+                        value="#42e6f5"
+                        id="font-color"
+                        onchange="setFontColor(this)">
+                    <button class="controll-button" id="font-highlight" onclick="highlightText(this)">
+                        <span><strong>Highlight</strong></span>
+                    </button>
+                    <button class="controll-button" id="font-outline" onclick="outlineText(this)">
+                        <span><strong>Outline</strong></span>
+                    </button>
+                    <button class="controll-button" id="font-shadow" onclick="shadowText(this)">
+                        <span><strong>Shadow</strong></span>
+                    </button>    
+                    <button class="controll-button" id="font-blurred" onclick="blurText(this)">
+                        <span>Blur</span>
                     </button>
                 </div>
-                <div class="col">
-                    <button class="controll-button" id="italic" onclick="f4(this)">
-                        <i class="fa-solid fa-italic"></i>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="underline" onclick="f5(this)">
-                        <i class="fa-solid fa-underline"></i>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="font-color" onclick="f6(this)">
-                        <span><strong>A</strong></span>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="font-highlight" onclick="f7(this)">
-                        <span><strong>A</strong></span>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="font-outline" onclick="f8(this)">
-                        <span><strong>A</strong></span>
-                    </button>
-                </div>
-                <div class="col">
-                    <button class="controll-button" id="font-shadow" onclick="f9(this)">
-                        <span><strong>A</strong></span>
-                    </button>
-                </div>
-            </div>                
-        </div>
-        <textarea class="visible"></textarea>
+            </div>
+            <div class="input-extra">
+                <button id="add-paragraph"><p class="giant-text">+</p><p>add another paragraph</p></button>
+            </div>
+            <div class="input-extra">
+                <input type="text" placeholder="Book title and author name (optional)"></input>
+            </div> 
+        </div>        
         <div id="cover-section" class="hidden">
             <input 
                 type="text"
                 id="own-cover"
+                class="own-url"
                 placeholder="paste the URL for your cover here"                       
                 onchange="f11(this)">
-            <button id="add-cover">submit</button>
-        </div>   
-        <div class="input-extra">
-            <input type="text" placeholder="Book title and author name (optional)"></input>
-        </div> 
-        <div class="input-extra">
-            <button id="toggle-cover-text">show book cover instead of text</button>
-        </div>        
+            <button id="add-cover" class="own-url-submit">submit</button>
+        </div>                   
     </div>
     <div class="background-option-section">
         <div class="heading-wrapper">
             <h2>Select a background</h2>
         </div>             
         <div id="background-options">
-            <div>
+            <div id="own-background-section">
                 <input 
                     type="text"
                     id="own-background"
+                    class="own-url"
                     placeholder="or paste the URL for your own image here"                       
                     onchange="f10(this)">
-                <button id="add-own-background">submit</button>
+                <button id="add-own-background" class="own-url-submit">submit</button>
             </div>            
             <button class="background-option">
-                <div class="background-sample background-plain"></div>
-                <p>Plain</p>                  
+                <input
+                    id="plain-color-background"
+                    class="background-sample background-plain"
+                    type="color"
+                    value="#ffffff">
+                <p>Plain Color</p>                  
             </button>   
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-gold-sheet"></div>
                 <p>Gold Sheet</p>                    
             </button>   
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-silver-sheet"></div>
                 <p>Silver Sheet</p>                    
             </button>        
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-rosegold-sheet"></div>
                 <p>Rosegold Sheet</p>                    
             </button>            
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-fur-blanket"></div>
                 <p>Fur Blanket</p>                    
             </button>  
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-plaid-blanket"></div>
                 <p>Plaid Blanket</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-red-violet-ink"></div>
                 <p>Red Violet Ink</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-glitter-confetti"></div>
                 <p>Glitter Confetti</p>                    
             </button>  
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-pastel-glitter"></div>
                 <p>Pastel Glitter</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-gold-foil"></div>
                 <p>Gold Foil</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-green-and-orange-watercolor"></div>
                 <p>Green and Orange Watercolor</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-slate-blue-watercolor"></div>
                 <p>Slate Blue Watercolor</p>                    
             </button> 
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-marbled-ink"></div>
                 <p>Marbled Ink</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-jagged-marble"></div>
                 <p>Jagged Marble</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-wood"></div>
                 <p>Wood Panels</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-amber-space"></div>
                 <p>Amber Space</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-indigo-space"></div>
                 <p>Indigo Space</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-calm-clouds"></div>
                 <p>Calm Clouds</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-clear-sunset"></div>
                 <p>Clear Sunset</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-calm-water"></div>
                 <p>Calm Water</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-black-steam"></div>
                 <p>Black Steam</p>                    
             </button>
-            <button class="background-option">
+            <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-black-rain"></div>
                 <p>Black Rain</p>                    
             </button>     
@@ -194,7 +179,7 @@
     </div>
     <div id="output-section" class="output-section-small background-plain">
         <div id="tablet" class="tablet-small">
-            <div id="page" class="page-small">
+            <div id="tablet-screen" class="page-small">
             </div>
         </div>
     </div>
