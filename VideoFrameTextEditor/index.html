@@ -72,7 +72,7 @@
     <div class="background-option-section">
         <div class="heading-wrapper">
             <h2>Select a background</h2>
-        </div>             
+        </div>                  
         <div id="background-options">
             <div id="own-background-section">
                 <input 
@@ -83,14 +83,19 @@
                     onchange="f10(this)">
                 <button id="add-own-background" class="own-url-submit">submit</button>
             </div>            
-            <button class="background-option">
-                <input
-                    id="plain-color-background"
-                    class="background-sample background-plain"
-                    type="color"
-                    value="#ffffff">
+            <button class="background-option" onclick="showPlainBackgroundColorPicker()">
+                <div class="background-sample background-plain" id="background-plain-sample"></div>
                 <p>Plain Color</p>                  
             </button>   
+            <div id="plain-background-color-picker" class="color-picker hidden">
+                <h3>Choose a color for your background</h3>
+                <input
+                    id="plain-color-background"
+                    type="color"
+                    value="#ffffff">
+                <button id="plain-color-submit" onclick="setPlainColorBackground()">set color</button>
+                <button id="plain-color-cancel" onclick="closePlainColorBackgroundPicker()">cancel</button>
+            </div>   
             <button class="background-option" onclick="setBackground(this)">
                 <div class="background-sample background-gold-sheet"></div>
                 <p>Gold Sheet</p>                    

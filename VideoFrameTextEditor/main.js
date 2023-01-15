@@ -4,6 +4,8 @@ var inputToggleButton = document.getElementById("toggle-cover-text");
 var paragraphInputSection = document.getElementById("paragraph-input-section");
 var coverSection = document.getElementById("cover-section");
 var outputSection = document.getElementById("output-section");
+var plainBackgroundColorPicker = document.getElementById("plain-background-color-picker");
+var plainColorBackground = document.getElementById("plain-color-background");
 
 function toggleInput(){
     if (isParagraphMode) {
@@ -28,6 +30,29 @@ function setFontColor(e) {
 function setBackground(e) {
     let backgroundClass = e.firstElementChild.classList[1];
     let oldBackgroundClass = outputSection.classList[1];
-    outputSection.classList.add(backgroundClass);
-    outputSection.classList.remove(oldBackgroundClass);
+    if (backgroundClass != oldBackgroundClass) {
+        outputSection.style.backgroundColor.remove;
+        outputSection.classList.add(backgroundClass);
+        outputSection.classList.remove(oldBackgroundClass);
+    }
+}
+
+function showPlainBackgroundColorPicker() {
+    plainBackgroundColorPicker.classList.remove("hidden");
+}
+
+function setPlainColorBackground() {
+    let newColor = plainColorBackground.value;
+    let oldBackgroundClass = outputSection.classList[1];
+    if (oldBackgroundClass != "background-plain") {
+        outputSection.classList.add("background-plain");
+        outputSection.classList.remove(oldBackgroundClass);
+    }
+    outputSection.style.backgroundColor = newColor;
+    document.getElementById("background-plain-sample").style.backgroundColor = newColor;
+    plainBackgroundColorPicker.classList.add("hidden");
+}
+
+function closePlainColorBackgroundPicker() {
+    plainBackgroundColorPicker.classList.add("hidden");
 }

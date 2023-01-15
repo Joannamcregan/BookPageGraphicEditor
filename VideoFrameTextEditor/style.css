@@ -14,6 +14,43 @@ body{
     overflow-x: hidden;
 }
 
+.color-picker{
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    border: solid #777 5px;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 8px black;
+}
+
+.color-picker input[type=color]{
+    width: 20%;
+    height: 30px;
+    display: block;
+    margin: 10px auto;
+}
+
+.color-picker button{
+    width: 25%;
+    display: inline-block;
+    padding: 2px 5px;
+    background: white;
+    border-radius: 5px;
+}
+
+#plain-color-submit{
+    background: rgb(213, 241, 241);
+    margin: 10px 0 10px 20%;
+}
+
+#plain-color-cancel{
+    background: rgb(247, 212, 212);
+    margin: 10px 0 10px 10%;
+}
+
 .input-section{
     width: 400px;
     height: 580px;
