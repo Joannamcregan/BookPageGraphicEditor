@@ -14,7 +14,7 @@
         <div class="heading-wrapper">
             <h2 id="input-heading">Enter and format your text</h2>
         </div>  
-        <div class="input-extra" onclick="toggleInput()">
+        <div class="input-extra" onclick="toggleCoverExcerpt()">
             <button id="toggle-cover-text">display book cover instead of text</button>
         </div>
         <div id="paragraph-input-section">
@@ -60,29 +60,21 @@
             </div> 
         </div>        
         <div id="cover-section" class="hidden">
-            <input 
-                type="text"
-                id="own-cover"
-                class="own-url"
-                placeholder="paste the URL for your cover here"                       
-                onchange="f11(this)">
-            <button id="add-cover" class="own-url-submit">submit</button>
+            <form>
+                <input type="radio" onchange="fitCover()" id="fit-cover-option" value="fit-cover-option" name="fit-fill-cover">
+                <label for="fit-cover-option">fit cover</label>
+                <br>
+                <br>
+                <input type="radio" onchange="fillCover()" id="fill-cover-option" value="fill-cover-option" name="fit-fill-cover">
+                <label for="fill-cover-option">fill screen</label>
+            </form>
         </div>                   
     </div>
     <div class="background-option-section">
         <div class="heading-wrapper">
             <h2>Select a background</h2>
         </div>                  
-        <div id="background-options">
-            <div id="own-background-section">
-                <input 
-                    type="text"
-                    id="own-background"
-                    class="own-url"
-                    placeholder="or paste the URL for your own image here"                       
-                    onchange="f10(this)">
-                <button id="add-own-background" class="own-url-submit">submit</button>
-            </div>            
+        <div id="background-options">       
             <button class="background-option" onclick="showPlainBackgroundColorPicker()">
                 <div class="background-sample background-plain" id="background-plain-sample"></div>
                 <p>Plain Color</p>                  
@@ -185,6 +177,8 @@
     <div id="output-section" class="output-section-small background-plain">
         <div id="tablet" class="tablet-small">
             <div id="tablet-screen" class="page-small">
+                <div id="cover" class="hidden"></div>
+                <div id="excerpt"></div>
             </div>
         </div>
     </div>

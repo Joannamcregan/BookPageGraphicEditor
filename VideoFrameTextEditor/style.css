@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -191,12 +192,12 @@ i{
     box-shadow: #00000059 0px 5px 15px;
 }
 
-/* .visible{
-    display: block;
-} */
-
 .hidden{
     display: none;
+}
+
+.block{
+    display: block;
 }
 
 #toggle-cover-text{
@@ -205,7 +206,7 @@ i{
     margin: 10px auto;
     display: block;
     text-align: center;
-    background: rgb(213, 241, 241);
+    background: rgb(229, 243, 243);
     border: solid black 5px;
     border-radius: 5px;
     cursor: pointer;
@@ -217,7 +218,7 @@ i{
     display: block;
     margin: 10px auto;
     text-align: center;
-    background: rgb(213, 241, 241);
+    background: rgb(195, 231, 219);
     border: solid black 5px;
     border-radius: 5px;
     cursor: pointer; 
@@ -279,12 +280,12 @@ h2{
 #tablet-screen{    
     margin: 15px auto auto auto;
     border-radius: 5px;
-    background: white;
 }
 
 .page-small{
     width: 244px;
     height: 365px;
+    background-color: white;
 }
 
 #download-button{
@@ -328,28 +329,30 @@ h2{
     cursor: pointer;
 }
 
-#own-background-section{
+#cover-section{
+    width: fit-content;
+    background: #999;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+#cover{
     width: 100%;
+    height: 100%;
 }
 
-.own-url{
-    width: 280px;
-    height: fit-content;
-    margin: 10px auto;
-    padding: 10px 5px;
-    border: solid black 2px;
-    border-radius: 5px;
-    display: block;
+.fit-cover{
+    background-image: url('../projectSpec/cover.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
 }
 
-.own-url-submit{
-    width: 20%;
-    padding: 5px 0;
-    background: rgb(213, 241, 241);
-    border: solid black 2px;
-    border-radius: 5px;
-    margin: 0 40%;
-    cursor: pointer;
+.fill-cover{
+    background-image: url('../projectSpec/cover.jpg');
+    background-size: cover;
 }
 
 .background-option input[type=color]{
