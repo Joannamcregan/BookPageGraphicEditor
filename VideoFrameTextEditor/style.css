@@ -4,10 +4,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }
 
 body{
-    background: #333;
+    background: rgb(51, 51, 51);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -15,10 +16,22 @@ body{
     overflow-x: hidden;
 }
 
-.color-picker{
+.background-color-picker{
     position: absolute;
     top: 40%;
     right: 40%;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    border: solid #777 5px;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 8px black;
+}
+
+.color-picker{
+    position: absolute;
+    top: 40%;
+    left: 20%;
     background: rgb(214, 214, 214);
     padding: 10px;
     border: solid #777 5px;
@@ -34,7 +47,14 @@ body{
     margin: 10px auto;
 }
 
-.color-picker button{
+.background-color-picker input[type=color]{
+    width: 20%;
+    height: 30px;
+    display: block;
+    margin: 10px auto;
+}
+
+.background-color-picker button{
     width: 25%;
     display: inline-block;
     padding: 2px 5px;
@@ -92,7 +112,7 @@ body{
 }
 
 .controll-section{
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     flex-wrap: wrap;
     width: 240px;
@@ -150,9 +170,9 @@ body{
     color: #5271ff;
 }
 
-.controll-section span{
+/* .controll-section span{
     font-size: 16px;
-}
+} */
 
 i{
     font-size: 16px;
@@ -160,11 +180,7 @@ i{
 
 #font-highlight{
     padding: 2px 0;
-}
-
-#font-highlight span{
-    background: rgb(255, 242, 140);
-    padding: 1px 5px;
+    /* background: #f1f19c; */
 }
 
 #font-outline{
@@ -200,19 +216,35 @@ i{
     display: block;
 }
 
+.flex{
+    display: flex;
+}
+
 #toggle-cover-text{
     width: fit-content;
-    padding: 5px;
+    padding: 5px 50px;
     margin: 10px auto;
     display: block;
     text-align: center;
-    background: rgb(229, 243, 243);
+    background: rgb(213, 241, 241);
     border: solid black 5px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #add-paragraph{
+    width: fit-content;
+    padding: 0 5px 5px 5px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    background: rgb(213, 241, 241);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enter-paragraph{
     width: fit-content;
     padding: 5px;
     display: block;
@@ -222,6 +254,20 @@ i{
     border: solid black 5px;
     border-radius: 5px;
     cursor: pointer; 
+    font-size: 18px;
+}
+
+.delete-paragraph{
+    width: fit-content;
+    padding: 5px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    background: rgb(247, 212, 212);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 12px;
 }
 
 .giant-text{
@@ -279,6 +325,7 @@ h2{
 
 #tablet-screen{    
     margin: 15px auto auto auto;
+    padding: 10px;
     border-radius: 5px;
 }
 
@@ -286,6 +333,54 @@ h2{
     width: 244px;
     height: 365px;
     background-color: white;
+}
+
+.excerpt-paragraph{
+    text-indent: 24px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.Arial{
+    font-family: 'Arial', sans-serif;
+}
+
+.Verdana{
+    font-family: 'Verdana', sans-serif;
+}
+
+.Tahoma{
+    font-family: 'Tahoma', sans-serif;
+}
+
+.Trebuchet{
+    font-family: '.Trebuchet', sans-serif;
+}
+
+.Times-New-Roman{
+    font-family: '.Times-New-Roman', serif;
+}
+
+.Georgia{
+    font-family: '.Georgia', serif;
+}
+
+.Garamond{
+    font-family: 'Garamond', serif;
+}
+
+.Courier-New{
+    font-family: 'Courier New', monospace;
 }
 
 #download-button{
