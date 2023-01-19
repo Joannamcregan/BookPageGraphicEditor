@@ -121,8 +121,9 @@ function openPicker(num, id) {
 }
 
 function updateFontColor(num, e) {
-    document.getElementById('text-output-' + num).style.color = e.value;
-    document.getElementById('font-color-' + num).firstChild.style.color = e.value;
+    let color = e.parentElement.querySelector('input').value;
+    document.getElementById('text-output-' + num).style.color = color;
+    document.getElementById('font-color-' + num).firstChild.style.color = color;
     e.parentElement.classList.add('hidden');
 }
 
@@ -152,6 +153,26 @@ function updateOmbrelightGradient(num, e) {
 function removeOmbrelight(num) {
     document.getElementById('text-output-' + num).style.backgroundImage = "none";
 }
+
+function addOutline(num) {
+    let color = e.parentElement.querySelector('input').value;
+    document.getElementById('text-output-' + num).style.textShadow = "0 0 2 " + color;
+    document.getElementById('font-outline').style.textShadow = "0 0 " + thickness + "px " + color;
+    document.getElementById("change-outline").classList.remove("hidden");
+    document.getElementById("add-outline").classList.add("hidden");
+    document.getElementById("font-blurred-" + num).disabled = "disabled";
+    document.getElementById("font-shadow-" + num).disabled = "disabled";
+}
+
+function toggleShadow(num) {
+    // document.getElementById("font-outline-" + num).disabled = "disabled";
+    // document.getElementById("font-blur-" + num).disabled = "disabled";
+    if (document.getElementById("text-output-" + num).style.textShadow) {
+        document.getElementById("text-output-" + num).style.textShadow = "";
+    } else {        
+        document.getElementById("text-output-" + num).style.textShadow = "1px 1px 3px #215271";
+    }
+} 
 
 function closeParent(e) {
     e.parentElement.classList.add('hidden');

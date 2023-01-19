@@ -103,19 +103,20 @@ body{
 }
 
 .input-extra input{
-    width: 244px;
+    width: 320px;
     border: solid #444 5px;
     border-radius: 5px;
     text-align: center;
     padding: 5px 0;
-    margin: 10px 20%;
+    margin: 10px auto;
+    display: block;
 }
 
 .controll-section{
     /* display: flex; */
     flex-direction: row;
     flex-wrap: wrap;
-    width: 240px;
+    width: 320px;
     height: fit-content;
     margin: 10px auto;
     padding: 5px;
@@ -183,13 +184,13 @@ i{
     /* background: #f1f19c; */
 }
 
-#font-outline{
+/* #font-outline{
     text-shadow: 0 0 2px #ff005d;
-}
+} */
 
-#font-shadow{
+/* #font-shadow{
     text-shadow: 1px 1px 3px #215271;
-}
+} */
 
 #font-blurred {
     color: rgba(0, 0, 0, 0.2);
@@ -197,7 +198,7 @@ i{
  }
 
 .text-input{
-    width: 244px;
+    width: 330px;
     height: 100px;
     display: block;
     margin: 10px auto 10px auto;
@@ -236,7 +237,7 @@ i{
     width: fit-content;
     padding: 0 5px 5px 5px;
     display: block;
-    margin: 10px auto;
+    margin: 10px auto 30px auto;
     text-align: center;
     background: rgb(213, 241, 241);
     border: solid black 5px;
@@ -351,7 +352,7 @@ h2{
     text-decoration: underline;
 }
 
-.Arial{
+/* .Arial{
     font-family: 'Arial', sans-serif;
 }
 
@@ -381,7 +382,7 @@ h2{
 
 .Courier-New{
     font-family: 'Courier New', monospace;
-}
+} */
 
 #download-button{
     margin: 20px 50px 0 0;
