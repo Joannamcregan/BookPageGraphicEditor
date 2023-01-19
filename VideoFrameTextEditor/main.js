@@ -10,6 +10,8 @@ var tabletScreen = document.getElementById("tablet-screen");
 var cover = document.getElementById("cover");
 var excerpt = document.getElementById("excerpt");
 
+var previousTextColors = [];
+
 var textSectionCounter = 0;
 var textSections = [];
 
@@ -136,9 +138,9 @@ function updateHighlightColor(num, e) {
     e.parentElement.classList.add('hidden');
 }
 
-function removeHighlight(num) {
+function removeHighlight(num, e) {
     document.getElementById('text-output-' + num).style.backgroundColor = '';
-    console.log("removing highlight");
+    e.parentElement.classList.add('hidden');
 }
 
 function updateOmbrelightGradient(num, e) {
@@ -150,27 +152,87 @@ function updateOmbrelightGradient(num, e) {
     e.parentElement.classList.add('hidden');
 }
 
-function removeOmbrelight(num) {
+function removeOmbrelight(num, e) {
     document.getElementById('text-output-' + num).style.backgroundImage = "none";
+    e.parentElement.classList.add('hidden');
 }
 
-function addOutline(num) {
-    let color = e.parentElement.querySelector('input').value;
-    document.getElementById('text-output-' + num).style.textShadow = "0 0 2 " + color;
-    document.getElementById('font-outline').style.textShadow = "0 0 " + thickness + "px " + color;
-    document.getElementById("change-outline").classList.remove("hidden");
-    document.getElementById("add-outline").classList.add("hidden");
-    document.getElementById("font-blurred-" + num).disabled = "disabled";
-    document.getElementById("font-shadow-" + num).disabled = "disabled";
+function addOutline(num, e) {
+    let color = e.parentElement.querySelectorAll('input')[0].value;
+    let thickness = e.parentElement.querySelectorAll('input')[1].value;
+    document.getElementById('text-output-' + num).style.textShadow = "0 0 " + thickness + "px " + color;
+    document.getElementById('font-outline-' + num).firstElementChild.style.textShadow = "0 0 2px " + color;    
+    document.getElementById("font-shadow-" + num).classList.add("hidden");
+    document.getElementById("font-blurred-" + num).classList.add("hidden");
+    document.getElementById("grayed-out-font-shadow-" + num).classList.remove("hidden");
+    document.getElementById("grayed-out-font-blurred-" + num).classList.remove("hidden");
+    e.parentElement.classList.add('hidden');
+}
+
+function removeOutline(num, e) {
+    document.getElementById("text-output-" + num).style.textShadow = "";    
+    document.getElementById("grayed-out-font-shadow-" + num).classList.add("hidden");
+    document.getElementById("grayed-out-font-blurred-" + num).classList.add("hidden");
+    document.getElementById("font-shadow-" + num).classList.remove("hidden");
+    document.getElementById("font-blurred-" + num).classList.remove("hidden");
+    e.parentElement.classList.add('hidden');
 }
 
 function toggleShadow(num) {
-    // document.getElementById("font-outline-" + num).disabled = "disabled";
-    // document.getElementById("font-blur-" + num).disabled = "disabled";
     if (document.getElementById("text-output-" + num).style.textShadow) {
         document.getElementById("text-output-" + num).style.textShadow = "";
+        document.getElementById("grayed-out-font-outline-" + num).classList.add("hidden");
+        document.getElementById("grayed-out-font-blurred-" + num).classList.add("hidden");
+        document.getElementById("font-outline-" + num).classList.remove("hidden");
+        document.getElementById("font-blurred-" + num).classList.remove("hidden");
     } else {        
         document.getElementById("text-output-" + num).style.textShadow = "1px 1px 3px #215271";
+        document.getElementById("font-outline-" + num).classList.add("hidden");
+        document.getElementById("font-blurred-" + num).classList.add("hidden");
+        document.getElementById("grayed-out-font-outline-" + num).classList.remove("hidden");
+        document.getElementById("grayed-out-font-blurred-" + num).classList.remove("hidden");
+    }
+} 
+
+function toggleBlur(num) {
+    if (document.getElementById("text-output-" + num).style.textShadow) {
+        let alreadyInArray = false;
+        let counter = 0;
+        while (alreadyInArray === false && counter < previousTextColors.length){
+            if (previousTextColors[counter].paragraphNum == num){
+                document.getElementById("text-output-" + num).style.color = previousTextColors[counter].previousColor;
+                alreadyInArray = true;
+            } else {
+                document.getElementById("text-output-" + num).style.color = "black";
+            }
+        }
+        document.getElementById("text-output-" + num).style.textShadow = "";        
+        document.getElementById("grayed-out-font-outline-" + num).classList.add("hidden");
+        document.getElementById("grayed-out-font-shadow-" + num).classList.add("hidden");
+        document.getElementById("font-outline-" + num).classList.remove("hidden");
+        document.getElementById("font-shadow-" + num).classList.remove("hidden");
+    } else {        
+        let alreadyInArray = false;
+        let counter = 0;
+        while (alreadyInArray === false && counter < previousTextColors.length){
+            if (previousTextColors[counter].paragraphNum == num){
+                previousTextColors[counter].previousColor = document.getElementById("text-output-" + num).style.color;
+                alreadyInArray = true;
+            }
+        }        
+        if (alreadyInArray === false) {
+            let previousTextColor = {
+                paragraphNum: num,
+                previousColor: document.getElementById("text-output-" + num).style.color
+            };
+            previousTextColors.push(previousTextColor);
+        }
+        document.getElementById("text-output-" + num).style.color = "rgba(0, 0, 0, 0.2)";
+        document.getElementById("text-output-" + num).style.textShadow = "0 0 5px black";
+        document.getElementById("font-outline-" + num).classList.add("hidden");
+        document.getElementById("font-shadow-" + num).classList.add("hidden");
+        document.getElementById("grayed-out-font-outline-" + num).classList.remove("hidden");
+        document.getElementById("grayed-out-font-shadow-" + num).classList.remove("hidden");
     }
 } 
 

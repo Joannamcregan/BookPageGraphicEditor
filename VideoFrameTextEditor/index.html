@@ -68,7 +68,7 @@
                                 type="color"
                                 value="#f1f19c">
                             <button onclick="updateHighlightColor(0, this)">set highlight</button>
-                            <button onclick="removeHighlight(0)">remove</button>
+                            <button onclick="removeHighlight(0, this)">remove</button>
                             <button onclick="closeParent(this)">close</button>
                         </div>
                         <button class="controll-button" id="font-ombrelight" onclick="openPicker(0, 'ombrelight-color-picker-')">
@@ -83,7 +83,7 @@
                                 type="color"
                                 value="#cb9cf1">
                             <button onclick="updateOmbrelightGradient(0, this)">set gradient</button>
-                            <button onclick="removeOmbrelight(0)">remove</button>
+                            <button onclick="removeOmbrelight(0, this)">remove</button>
                             <button onclick="closeParent(this)">close</button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
                         </button>
                         <div id="outline-picker-0" class="color-picker hidden">
-                            <h3>Choose a color and thickness</h3>
+                            <h3>Choose a color and spread width</h3>
                             <input
                                 type="color"
                                 value="#ff005d"
@@ -103,17 +103,21 @@
                                 max="10"
                                 value="2"
                                 class="colorAndThickness">
-                            <button onclick="addOutline(0, this)" id="add-outline">set outline</button>
-                            <button onclick="changeOutline(0, this)" class="hidden" id="change-outline">change outline</button>
-                            <button onclick="removeOutline(0, this)" id="remove-outline">remove outline</button>
+                            <button onclick="addOutline(0, this)" id="add-outline-0">set outline</button>
+                            <button onclick="removeOutline(0, this)" id="remove-outline-0">remove outline</button>
                             <button onclick="closeParent(this)">close</button>
                         </div>
+                        <div class="hidden grayed-out" id="grayed-out-font-outline-0"><span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span></div>                        
                         <button class="controll-button" id="font-shadow-0" onclick="toggleShadow(0)">
                             <span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span>
                         </button>
+                        <div class="hidden grayed-out" id="grayed-out-font-shadow-0"><span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span></div>
                         <button class="controll-button" id="font-blurred-0" onclick="toggleBlur(0)">
-                            <span>Blur</span>
+                            <span style="color: rgba(0, 0, 0, 0.2);
+                            text-shadow: 0 0 5px black">Blur</span>
                         </button>
+                        <div class="hidden grayed-out" id="grayed-out-font-blurred-0"><span style="color: rgba(0, 0, 0, 0.2);
+                            text-shadow: 0 0 5px black">Blur</span></div>
                     </div>                    
                 </div>
                 <button id="enter-paragraph-0" class="enter-paragraph" onclick="updateText(0)"><p>enter this text</p></button>
