@@ -9,6 +9,7 @@ var plainColorBackground = document.getElementById("plain-color-background");
 var tabletScreen = document.getElementById("tablet-screen");
 var cover = document.getElementById("cover");
 var excerpt = document.getElementById("excerpt");
+var paragraphInputs = document.getElementById("paragraph-inputs");
 
 var previousTextColors = [];
 
@@ -250,6 +251,7 @@ function addParagraph() {
     textInput.classList.add('text-input');
     textInput.id = "text-input-" + textSectionCounter;
     textInput.placeholder = "Enter a paragraph from your page here.";
+    paragraphInput.appendChild(textInput);
 // <div class="controll-section hidden" id="controll-section-0">
     let controllSection = document.createElement('div');
     controllSection.classList.add("controll-section");
@@ -298,6 +300,7 @@ function addParagraph() {
     updateFontOption.style ="font-family: 'Courier New', Courier, monospace";
     updateFontOption.innerText = 'Courier New';
     updateFontSelect.appendChild(updateFontOption);
+    controllSection.appendChild(updateFontSelect);
 //<input type="number" id="font-size" min="10" max="100" value="16" onchange="updateFontSize(0, this)">
     let fontSizeInput = document.createElement('input');
     fontSizeInput.type = "number";
@@ -306,6 +309,200 @@ function addParagraph() {
     fontSizeInput.max = "100";
     fontSizeInput.value = "16";
     fontSizeInput.onchange = "updateFontSize(" + textSectionCounter + ", this)";
+    controllSection.appendChild(fontSizeInput);
+//<button class="controll-button" onclick="toggleClass(0, 'bold')">
+    let button = document.createElement('button');
+    button.classList.add(controll-button);
+    button.onclick = "toggleClass(" + textSectionCounter + ", 'bold')";
+//<span><strong><i class="fa-solid fa-bold"></i></strong></span>
+    let buttonSpan = document.createElement('span');
+    let buttonStrong = document.createElement('strong');
+    let buttonIcon = document.createElement('i');
+    buttonIcon.classList.add('fa-solid');
+    buttonIcon.classList.add('fa-bold');
+    buttonStrong.appendChild(buttonIcon);
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    controllSection.appendChild(button);
+//<button class="controll-button" onclick="toggleClass(0, 'italic')">
+//<span><strong><i class="fa-solid fa-italic"></i></strong></span>
+    button = document.createElement('button');
+    button.classList.add(controll-button);
+    button.onclick = "toggleClass(" + textSectionCounter + ", 'italic')";
+    buttonSpan = document.createElement('span');
+    buttonStrong = document.createElement('strong');
+    buttonIcon = document.createElement('i');
+    buttonIcon.classList.add('fa-solid');
+    buttonIcon.classList.add('fa-italic');
+    buttonStrong.appendChild(buttonIcon);
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    controllSection.appendChild(button);
+//<button class="controll-button" onclick="toggleClass(0, 'underline')">
+//<span><strong><i class="fa-solid fa-underline"></i></strong></span>
+    button = document.createElement('button');
+    button.classList.add(controll-button);
+    button.onclick = "toggleClass(" + textSectionCounter + ", 'underline')";
+    buttonSpan = document.createElement('span');
+    buttonStrong = document.createElement('strong');
+    buttonIcon = document.createElement('i');
+    buttonIcon.classList.add('fa-solid');
+    buttonIcon.classList.add('fa-underline');
+    buttonStrong.appendChild(buttonIcon);
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    controllSection.appendChild(button);
+//<div>
+    let rowDiv = document.createElement('div');
+//<button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
+    button = document.createElement('button');
+    button.classList.add('controll-button');
+    button.onclick = "openPicker(" + textSectionCounter + ", 'font-color-picker-')";
+//<span id="font-color-0"><strong>Font Color</strong></span>
+    buttonSpan = document.createElement('span');
+    buttonSpan.id = "font-color-" + textSectionCounter;
+    buttonStrong = document.createElement('strong');
+    buttonStrong.innerText = 'Font Color';
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    rowDiv.appendChild(button);
+//<div id="font-color-picker-0" class="color-picker hidden">
+    let pickerDiv = document.createElement('div');
+    pickerDiv.id = "font-color-picker-" + textSectionCounter;
+    pickerDiv.classList.add("color-picker hidden");
+//<h3>Choose a font color</h3>
+    let h3 = document.createElement('h3');
+    h3.innerText = 'Choose a font color';
+    pickerDiv.appendChild(h3);
+//<input type="color" value="black">
+    let pickerInput = document.createElement('input');
+    pickerInput.type = 'color';
+    pickerInput.value = 'black';
+    pickerDiv.appendChild(pickerInput);
+//<button onclick="updateFontColor(0, this)" class="set-button first-of-two">set color</button>
+    button = document.createElement('button');
+    button.onclick = "updateFontColor(" + textSectionCounter + ", this)";
+    button.classList.add('set-button');
+    button.classList.add('first-of-two');
+    button.innerText = 'set color';
+    pickerDiv.appendChild(button);
+//<button onclick="closeParent(this)" class="close-button second-of-two">close</button>
+    button = document.createElement('button');
+    button.onclick = "closeParent(this)";
+    button.classList.add('close-button');
+    button.classList.add('second-of-two');
+    button.innerText = 'close';
+    pickerDiv.appendChild(button);
+    rowDiv.appendChild(pickerDiv);
+//<button class="controll-button" id="font-highlight" onclick="openPicker(0, 'highlight-color-picker-')">
+//<span id="highlight-color-0"><strong style="background-color: #f1f19c" style="background-size: fit-content">Highlight</strong></span>
+    button = document.createElement('button');
+    button.classList.add(controll-button);
+    button.onclick = "openPicker(" + textSectionCounter + ", 'highlight-color-picker-')";
+    buttonSpan = document.createElement('span');
+    buttonSpan.id = "highlight-color-" + textSectionCounter;
+    buttonStrong = document.createElement('strong');
+    buttonStrong.style ="background-color: #f1f19c";
+    buttonStrong.style += "background-size: fit-content";
+    buttonStrong.innerText = 'Highlight';
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    controllSection.appendChild(button);
+//<div id="highlight-color-picker-0" class="color-picker hidden">
+    pickerDiv = document.createElement('div');
+    pickerDiv.id = "highlight-color-picker-" + textSectionCounter;
+    pickerDiv.classList.add("color-picker hidden");
+//<h3>Choose a highlight color</h3>
+    h3 = document.createElement('h3');
+    h3.innerText = 'Choose a highlight color';
+    pickerDiv.appendChild(h3);
+//<input type="color" value="#f1f19c">
+    pickerInput = document.createElement('input');
+    pickerInput.type = 'color';
+    pickerInput.value = "#f1f19c";
+    pickerDiv.appendChild(pickerInput);
+//<button onclick="updateHighlightColor(0, this)" class="set-button first-of-three">set highlight</button>
+    button = document.createElement('button');
+    button.onclick = "updateHighlightColor(" + textSectionCounter + ", this)";
+    button.classList.add('set-button');
+    button.classList.add('first-of-three');
+    button.innerText = 'set highlight';
+    pickerDiv.appendChild(button);
+//<button onclick="removeHighlight(0, this)" class="remove-button second-two">remove</button>
+    button = document.createElement('button');
+    button.onclick = "removeHighlight(" + textSectionCounter + ", this)";
+    button.classList.add("remove-button");
+    button.classList.add('second-two');
+    button.innerText = 'remove';
+    pickerDiv.appendChild(button);
+//<button onclick="closeParent(this)" class="close-button second-two">close</button>
+    button = document.createElement('button');
+    button.onclick = "closeParent(this)";
+    button.classList.add('close-button');
+    button.classList.add('second-two');
+    button.innerText = 'close';
+    pickerDiv.appendChild(button);
+    rowDiv.appendChild(pickerDiv);
+//<button class="controll-button" onclick="openPicker(0, 'ombrelight-color-picker-')">
+//<span id="ombrelight-color-0"><strong style="background-image: linear-gradient(#9cf1a2, #cb9cf1)" style="background-size: fit-content">Ombrelight</strong></span>
+    button =  document.createElement('button');
+    button.classList.add('controll-button');
+    button.onclick = "openPicker(" + textSectionCounter + ", 'ombrelight-color-picker-')";
+    buttonSpan = document.createElement('span');
+    buttonSpan.id = "ombrelight-color-" + textSectionCounter;
+    buttonStrong = document.createElement('strong');
+    buttonStrong.style = "background-image: linear-gradient(#9cf1a2, #cb9cf1)";
+    buttonStrong.style += "background-size: fit-content";
+    buttonStrong.innerText = 'Ombrelight';
+    buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
+    rowDiv.appendChild(button);
+//<div id="ombrelight-color-picker-0" class="color-picker hidden">
+    pickerDiv = document.createElement('div');
+    pickerDiv.id = "ombrelight-color-picker-" + textSectionCounter;
+    pickerDiv.classList.add('color-picker');
+    pickerDiv.classList.add('hidden');
+//<h3>Choose two colors</h3>
+    h3 = document.createElement('h3');
+    h3.innerText = 'Choose two colors';
+    pickerDiv.appendChild(h3);
+//<input type="color" value="#9cf1a2">
+    pickerInput = document.createElement('input');
+    pickerInput.type = 'color';
+    pickerInput.value = "#9cf1a2";
+    pickerDiv.appendChild(pickerInput);
+//<input type="color" value="#cb9cf1">
+    pickerInput = document.createElement('input');
+    pickerInput.type = 'color';
+    pickerInput.value = "#cb9cf1";
+    pickerDiv.appendChild(pickerInput);
+//<button onclick="updateOmbrelightGradient(0, this)" class="set-button first-of-three">set gradient</button>
+    button = document.createElement('button');
+    button.onclick = "updateOmbrelightGradient(" + textSectionCounter + ", this)";
+    button.classList.add('set-button');
+    button.classList.add('first-of-three');
+    button.innerText = 'set gradient';
+    pickerDiv.appendChild(button);
+//<button onclick="removeOmbrelight(0, this)" class="remove-button second-two">remove</button>
+    button = document.createElement(button);
+    button.onclick = "removeOmbrelight(" + textSectionCounter + ", this)";
+    button.classList.add('remove-button');
+    button.classList.add('second-two');
+    button.innerText = 'remove';
+    pickerDiv.appendChild(button);
+//<button onclick="closeParent(this)" class="close-button second-two">close</button>
+    button = document.createElement('button');
+    button.onclick = "closeParent(this)";
+    button.classList.add('close-button');
+    button.classList.add('second-two');
+    button.innerText = 'close';
+    pickerDiv.appendChild(button);
+    rowDiv.appendChild(pickerDiv);
+//line 91
     
 
+    
+    paragraphInput.appendChild(controllSection);
+
+    paragraphInputs.appendChild(paragraphInput);
 }

@@ -18,111 +18,113 @@
             <button id="toggle-cover-text">display book cover instead of text</button>
         </div>
         <div id="paragraph-input-section">
-            <div class="paragraph-input" id="paragraph-input-0">
-                <textarea class="text-input" id="text-input-0" placeholder="Enter a paragraph from your page here."></textarea>
-                <div class="controll-section hidden" id="controll-section-0">
-                    <select onchange="updateFont(0, this)">
-                        <option style="font-family: Arial, Helvetica, sans-serif">Arial</option>
-                        <option style="font-family: Verdana, Geneva, sans-serif">Verdana</option>
-                        <option style="font-family: Tahoma, sans-serif">Tahoma</option>
-                        <option style="font-family: Trebuchet, sans-serif">Trebuchet</option>
-                        <option style="font-family: 'Times New Roman', Times, serif">Times New Roman</option>
-                        <option style="font-family: Georgia, serif">Georgia</option>
-                        <option style="font-family: Garamond, serif">Garamond</option>
-                        <option style="font-family: 'Courier New', Courier, monospace">Courier New</option>
-                    </select>
-                    <input 
-                        type="number"
-                        id="font-size"
-                        min="10"
-                        max="100"
-                        value="16"                        
-                        onchange="updateFontSize(0, this)">
-                    <button class="controll-button" onclick="toggleClass(0, 'bold')">
-                        <span><strong><i class="fa-solid fa-bold"></i></strong></span>
-                    </button>
-                    <button class="controll-button" onclick="toggleClass(0, 'italic')">
-                        <span><strong><i class="fa-solid fa-italic"></i></strong></span>
-                    </button>
-                    <button class="controll-button" onclick="toggleClass(0, 'underline')">
-                        <span><strong><i class="fa-solid fa-underline"></i></strong></span>
-                    </button>
-                    <div>
-                        <button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
-                            <span id="font-color-0"><strong>Font Color</strong></span>
+            <div id="paragraph-inputs">
+                <div class="paragraph-input" id="paragraph-input-0">
+                    <textarea class="text-input" id="text-input-0" placeholder="Enter a paragraph from your page here."></textarea>
+                    <div class="controll-section hidden" id="controll-section-0">
+                        <select onchange="updateFont(0, this)">
+                            <option style="font-family: Arial, Helvetica, sans-serif">Arial</option>
+                            <option style="font-family: Verdana, Geneva, sans-serif">Verdana</option>
+                            <option style="font-family: Tahoma, sans-serif">Tahoma</option>
+                            <option style="font-family: Trebuchet, sans-serif">Trebuchet</option>
+                            <option style="font-family: 'Times New Roman', Times, serif">Times New Roman</option>
+                            <option style="font-family: Georgia, serif">Georgia</option>
+                            <option style="font-family: Garamond, serif">Garamond</option>
+                            <option style="font-family: 'Courier New', Courier, monospace">Courier New</option>
+                        </select>
+                        <input 
+                            type="number"
+                            id="font-size"
+                            min="10"
+                            max="100"
+                            value="16"                        
+                            onchange="updateFontSize(0, this)">
+                        <button class="controll-button" onclick="toggleClass(0, 'bold')">
+                            <span><strong><i class="fa-solid fa-bold"></i></strong></span>
                         </button>
-                        <div id="font-color-picker-0" class="color-picker hidden">
-                            <h3>Choose a font color</h3>
-                            <input
-                                type="color"
-                                value="black">
-                            <button onclick="updateFontColor(0, this)" class="set-button">set color</button>
-                            <button onclick="closeParent(this)" class="close-button">close</button>
-                        </div>
-                        <button class="controll-button" id="font-highlight" onclick="openPicker(0, 'highlight-color-picker-')">
-                            <span id="highlight-color-0"><strong style="background-color: #f1f19c" style="background-size: fit-content">Highlight</strong></span>
+                        <button class="controll-button" onclick="toggleClass(0, 'italic')">
+                            <span><strong><i class="fa-solid fa-italic"></i></strong></span>
                         </button>
-                        <div id="highlight-color-picker-0" class="color-picker hidden">
-                            <h3>Choose a highlight color</h3>
-                            <input
-                                type="color"
-                                value="#f1f19c">
-                            <button onclick="updateHighlightColor(0, this)">set highlight</button>
-                            <button onclick="removeHighlight(0, this)">remove</button>
-                            <button onclick="closeParent(this)">close</button>
-                        </div>
-                        <button class="controll-button" id="font-ombrelight" onclick="openPicker(0, 'ombrelight-color-picker-')">
-                            <span id="ombrelight-color-0"><strong style="background-image: linear-gradient(#9cf1a2, #cb9cf1)" style="background-size: fit-content">Ombrelight</strong></span>
+                        <button class="controll-button" onclick="toggleClass(0, 'underline')">
+                            <span><strong><i class="fa-solid fa-underline"></i></strong></span>
                         </button>
-                        <div id="ombrelight-color-picker-0" class="color-picker hidden">
-                            <h3>Choose two colors</h3>
-                            <input
-                                type="color"
-                                value="#9cf1a2">
-                            <input
-                                type="color"
-                                value="#cb9cf1">
-                            <button onclick="updateOmbrelightGradient(0, this)">set gradient</button>
-                            <button onclick="removeOmbrelight(0, this)">remove</button>
-                            <button onclick="closeParent(this)">close</button>
+                        <div>
+                            <button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
+                                <span id="font-color-0"><strong>Font Color</strong></span>
+                            </button>
+                            <div id="font-color-picker-0" class="color-picker hidden">
+                                <h3>Choose a font color</h3>
+                                <input
+                                    type="color"
+                                    value="black">
+                                <button onclick="updateFontColor(0, this)" class="set-button first-of-two">set color</button>
+                                <button onclick="closeParent(this)" class="close-button second-of-two">close</button>
+                            </div>
+                            <button class="controll-button" id="font-highlight" onclick="openPicker(0, 'highlight-color-picker-')">
+                                <span id="highlight-color-0"><strong style="background-color: #f1f19c" style="background-size: fit-content">Highlight</strong></span>
+                            </button>
+                            <div id="highlight-color-picker-0" class="color-picker hidden">
+                                <h3>Choose a highlight color</h3>
+                                <input
+                                    type="color"
+                                    value="#f1f19c">
+                                <button onclick="updateHighlightColor(0, this)" class="set-button first-of-three">set highlight</button>
+                                <button onclick="removeHighlight(0, this)" class="remove-button second-two">remove</button>
+                                <button onclick="closeParent(this)" class="close-button second-two">close</button>
+                            </div>
+                            <button class="controll-button" onclick="openPicker(0, 'ombrelight-color-picker-')">
+                                <span id="ombrelight-color-0"><strong style="background-image: linear-gradient(#9cf1a2, #cb9cf1)" style="background-size: fit-content">Ombrelight</strong></span>
+                            </button>
+                            <div id="ombrelight-color-picker-0" class="color-picker hidden">
+                                <h3>Choose two colors</h3>
+                                <input
+                                    type="color"
+                                    value="#9cf1a2">
+                                <input
+                                    type="color"
+                                    value="#cb9cf1">
+                                <button onclick="updateOmbrelightGradient(0, this)" class="set-button first-of-three">set gradient</button>
+                                <button onclick="removeOmbrelight(0, this)" class="remove-button second-two">remove</button>
+                                <button onclick="closeParent(this)" class="close-button second-two">close</button>
+                            </div>
                         </div>
+                        <div>
+                            <button class="controll-button" id="font-outline-0" onclick="openPicker(0, 'outline-picker-')">
+                                <span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
+                            </button>
+                            <div id="outline-picker-0" class="color-picker hidden">
+                                <h3>Choose a color and spread width</h3>
+                                <input
+                                    type="color"
+                                    value="#ff005d">
+                                <input 
+                                    type="number"
+                                    min="1"
+                                    max="10"
+                                    value="2">
+                                <br>
+                                <button onclick="addOutline(0, this)" id="add-outline-0" class="set-button first-of-three">set outline</button>
+                                <button onclick="removeOutline(0, this)" id="remove-outline-0" class="remove-button second-two">remove outline</button>
+                                <button onclick="closeParent(this)" class="close-button second-two">close</button>
+                            </div>
+                            <div class="hidden grayed-out" id="grayed-out-font-outline-0"><span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span></div>                        
+                            <button class="controll-button" id="font-shadow-0" onclick="toggleShadow(0)">
+                                <span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span>
+                            </button>
+                            <div class="hidden grayed-out" id="grayed-out-font-shadow-0"><span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span></div>
+                            <button class="controll-button" id="font-blurred-0" onclick="toggleBlur(0)">
+                                <span style="color: rgba(0, 0, 0, 0.2);
+                                text-shadow: 0 0 5px black">Blur</span>
+                            </button>
+                            <div class="hidden grayed-out" id="grayed-out-font-blurred-0"><span style="color: rgba(0, 0, 0, 0.2);
+                                text-shadow: 0 0 5px black">Blur</span></div>
+                        </div>                    
                     </div>
-                    <div>
-                        <button class="controll-button" id="font-outline-0" onclick="openPicker(0, 'outline-picker-')">
-                            <span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
-                        </button>
-                        <div id="outline-picker-0" class="color-picker hidden">
-                            <h3>Choose a color and spread width</h3>
-                            <input
-                                type="color"
-                                value="#ff005d"
-                                class="colorAndThickness">
-                            <input 
-                                type="number"
-                                min="1"
-                                max="10"
-                                value="2"
-                                class="colorAndThickness">
-                            <button onclick="addOutline(0, this)" id="add-outline-0">set outline</button>
-                            <button onclick="removeOutline(0, this)" id="remove-outline-0">remove outline</button>
-                            <button onclick="closeParent(this)">close</button>
-                        </div>
-                        <div class="hidden grayed-out" id="grayed-out-font-outline-0"><span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span></div>                        
-                        <button class="controll-button" id="font-shadow-0" onclick="toggleShadow(0)">
-                            <span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span>
-                        </button>
-                        <div class="hidden grayed-out" id="grayed-out-font-shadow-0"><span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span></div>
-                        <button class="controll-button" id="font-blurred-0" onclick="toggleBlur(0)">
-                            <span style="color: rgba(0, 0, 0, 0.2);
-                            text-shadow: 0 0 5px black">Blur</span>
-                        </button>
-                        <div class="hidden grayed-out" id="grayed-out-font-blurred-0"><span style="color: rgba(0, 0, 0, 0.2);
-                            text-shadow: 0 0 5px black">Blur</span></div>
-                    </div>                    
+                    <button id="enter-paragraph-0" class="enter-paragraph" onclick="updateText(0)"><p>enter this text</p></button>
+                    <button id="delete-paragraph-0" class="delete-paragraph" onclick="removeText(0)"><p>delete paragraph</p></button>
                 </div>
-                <button id="enter-paragraph-0" class="enter-paragraph" onclick="updateText(0)"><p>enter this text</p></button>
-                <button id="delete-paragraph-0" class="delete-paragraph" onclick="removeText(0)"><p>delete paragraph</p></button>
             </div>
+            
             <div class="input-extra">
                 <button id="add-paragraph" onclick="addParagraph()"><p class="giant-text">+</p><p>add another paragraph</p></button>
             </div>
