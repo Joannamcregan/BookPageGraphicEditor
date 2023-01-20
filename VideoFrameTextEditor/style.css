@@ -40,7 +40,7 @@ body{
     box-shadow: 0px 0px 8px black;
 }
 
-.color-picker input[type=color]{
+.color-picker input{
     width: 20%;
     height: 30px;
     display: block;
@@ -63,13 +63,15 @@ body{
 }
 
 #plain-color-submit{
-    background: rgb(213, 241, 241);
+    background-color: rgb(213, 241, 241);
     margin: 10px 0 10px 20%;
+    cursor: pointer;
 }
 
 #plain-color-cancel{
-    background: rgb(247, 212, 212);
+    background-color: rgb(247, 212, 212);
     margin: 10px 0 10px 10%;
+    cursor: pointer;
 }
 
 .input-section{
@@ -611,4 +613,16 @@ h2{
     background-image: url("img/blackRainBackground.jpg");
     background-size: cover;
     padding: 20px 0 20px 0;
+}
+
+.button-set{
+    background-color: rgb(213, 241, 241);
+    margin: 10px 0 10px 10%;
+    cursor: pointer;
+}
+
+.button-close{
+    background-color: rgb(247, 212, 212);
+    margin: 10px 0 10px 10%;
+    cursor: pointer;
 }

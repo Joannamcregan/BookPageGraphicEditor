@@ -12,7 +12,7 @@ var excerpt = document.getElementById("excerpt");
 
 var previousTextColors = [];
 
-var textSectionCounter = 0;
+var textSectionCounter = 1;
 var textSections = [];
 
 function toggleCoverExcerpt(){
@@ -238,4 +238,74 @@ function toggleBlur(num) {
 
 function closeParent(e) {
     e.parentElement.classList.add('hidden');
+}
+
+function addParagraph() {    
+//<div class="paragraph-input" id="paragraph-input-0">
+    let paragraphInput = document.createElement('div');
+    paragraphInput.classList.add('paragraph-input');
+    paragraphInput.id = "paragraph-input-" + textSectionCounter;
+//<textarea class="text-input" id="text-input-0" placeholder="Enter a paragraph from your page here."></textarea>
+    let textInput = document.createElement('textarea');
+    textInput.classList.add('text-input');
+    textInput.id = "text-input-" + textSectionCounter;
+    textInput.placeholder = "Enter a paragraph from your page here.";
+// <div class="controll-section hidden" id="controll-section-0">
+    let controllSection = document.createElement('div');
+    controllSection.classList.add("controll-section");
+    controllSection.classList.add("hidden");
+    controllSection.id = "controll-section-" + textSectionCounter;
+//<select onchange="updateFont(0, this)">
+    let updateFontSelect = document.createElement('select');
+    updateFontSelect.onchange = "updateFont(" + textSectionCounter + ", this)";
+//<option style="font-family: Arial, Helvetica, sans-serif">Arial</option>
+    let updateFontOption = document.createElement('option');
+    updateFontOption.style = "font-family: Arial, Helvetica, sans-serif";
+    updateFontOption.innerText = 'Arial';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: Verdana, Geneva, Tahoma, sans-serif">Verdana</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: Verdana, Geneva, sans-serif";
+    updateFontOption.innerText = 'Verdana';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: Tahoma, sans-serif">Tahoma</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: Tahoma, sans-serif";
+    updateFontOption.innerText = 'Tahoma';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: Trebuchet, sans-serif">Trebuchet</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: Trebuchet, sans-serif";
+    updateFontOption.innerText = 'Trebuchet';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: 'Times New Roman', Times, serif">Times New Roman</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: 'Times New Roman', Times, serif";
+    updateFontOption.innerText = 'Times New Roman';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: Georgia, serif">Georgia</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: Georgia, serif";
+    updateFontOption.innerText = 'Georgia';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: Garamond, serif">Garamond</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: Garamond, serif";
+    updateFontOption.innerText = 'Garamond';
+    updateFontSelect.appendChild(updateFontOption);
+//<option style="font-family: 'Courier New', Courier, monospace">Courier New</option>
+    updateFontOption = document.createElement('option');
+    updateFontOption.style ="font-family: 'Courier New', Courier, monospace";
+    updateFontOption.innerText = 'Courier New';
+    updateFontSelect.appendChild(updateFontOption);
+//<input type="number" id="font-size" min="10" max="100" value="16" onchange="updateFontSize(0, this)">
+    let fontSizeInput = document.createElement('input');
+    fontSizeInput.type = "number";
+    fontSizeInput.id = "font-size";
+    fontSizeInput.min = "10";
+    fontSizeInput.max = "100";
+    fontSizeInput.value = "16";
+    fontSizeInput.onchange = "updateFontSize(" + textSectionCounter + ", this)";
+    
+
 }
