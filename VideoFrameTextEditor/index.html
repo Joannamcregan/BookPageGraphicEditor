@@ -48,7 +48,7 @@
                         <button class="controll-button" onclick="toggleClass(0, 'underline')">
                             <span><strong><i class="fa-solid fa-underline"></i></strong></span>
                         </button>
-                        <div>
+                        <div> <!-- row div -->
                             <button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
                                 <span id="font-color-0"><strong>Font Color</strong></span>
                             </button>
@@ -88,7 +88,7 @@
                                 <button onclick="closeParent(this)" class="close-button second-two">close</button>
                             </div>
                         </div>
-                        <div>
+                        <div> <!-- row div -->
                             <button class="controll-button" id="font-outline-0" onclick="openPicker(0, 'outline-picker-')">
                                 <span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
                             </button>
@@ -113,11 +113,9 @@
                             </button>
                             <div class="hidden grayed-out" id="grayed-out-font-shadow-0"><span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span></div>
                             <button class="controll-button" id="font-blurred-0" onclick="toggleBlur(0)">
-                                <span style="color: rgba(0, 0, 0, 0.2);
-                                text-shadow: 0 0 5px black">Blur</span>
+                                <span style="color: rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black">Blur</span>
                             </button>
-                            <div class="hidden grayed-out" id="grayed-out-font-blurred-0"><span style="color: rgba(0, 0, 0, 0.2);
-                                text-shadow: 0 0 5px black">Blur</span></div>
+                            <div class="hidden grayed-out" id="grayed-out-font-blurred-0"><span style="color: rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black">Blur</span></div>
                         </div>                    
                     </div>
                     <button id="enter-paragraph-0" class="enter-paragraph" onclick="updateText(0)"><p>enter this text</p></button>
