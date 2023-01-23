@@ -49,7 +49,7 @@
                             <span><strong><i class="fa-solid fa-underline"></i></strong></span>
                         </button>
                         <div> <!-- row div -->
-                            <button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
+                            <button class="controll-button font-color" onclick="openPicker(0, 'font-color-picker-')">
                                 <span id="font-color-0"><strong>Font Color</strong></span>
                             </button>
                             <div id="font-color-picker-0" class="color-picker hidden">
@@ -60,7 +60,7 @@
                                 <button onclick="updateFontColor(0, this)" class="set-button first-of-two">set color</button>
                                 <button onclick="closeParent(this)" class="close-button second-of-two">close</button>
                             </div>
-                            <button class="controll-button" id="font-highlight" onclick="openPicker(0, 'highlight-color-picker-')">
+                            <button class="controll-button font-highlight" id="font-highlight" onclick="openPicker(0, 'highlight-color-picker-')">
                                 <span id="highlight-color-0"><strong style="background-color: #f1f19c" style="background-size: fit-content">Highlight</strong></span>
                             </button>
                             <div id="highlight-color-picker-0" class="color-picker hidden">
@@ -92,7 +92,7 @@
                             <button class="controll-button" id="font-outline-0" onclick="openPicker(0, 'outline-picker-')">
                                 <span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
                             </button>
-                            <div id="outline-picker-0" class="color-picker hidden">
+                            <div id="outline-picker-0" class="outline-picker color-picker hidden">
                                 <h3>Choose a color and spread width</h3>
                                 <input
                                     type="color"
@@ -124,7 +124,8 @@
             </div>
             
             <div class="input-extra">
-                <button id="add-paragraph" onclick="addParagraph()"><p class="giant-text">+</p><p>add another paragraph</p></button>
+                <button id="add-paragraph" class="add-paragraph hidden" onclick="addParagraph()"><p class="giant-text">+</p><p>add another paragraph</p></button>
+                <div class="grayed-out-button" id="grayed-out-add-paragraph"><p class="giant-text">+</p><p>add another paragraph</p></div>
             </div>
             <div class="input-extra">
                 <input type="text" placeholder="Book title and author name (optional)"></input>

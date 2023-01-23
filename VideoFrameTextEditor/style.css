@@ -126,7 +126,7 @@ body{
     /* border-right: solid #999 1px; */
 }
 
-#font-color{
+.font-color{
     width: 30px;
     border: none;
     margin: 5px auto 0 auto;
@@ -161,6 +161,28 @@ body{
     margin: 5px auto 5px auto;
     display: inline-block;
     font-size: 14px;
+}
+
+.grayed-out-button{
+    background: rgb(228, 228, 228);
+    padding: 0 5px 5px 5px;
+    width: fit-content;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    display: block;
+    border: solid #555 5px;
+}
+
+.add-paragraph{
+    width: fit-content;
+    padding: 0 5px 5px 5px;
+    display: block;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    background: rgb(213, 241, 241);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .color-picker{
@@ -229,14 +251,14 @@ body{
     padding: 5px;
 }
 
-#outline-picker-0 input[type=color]{
+.outline-picker input[type=color]{
     width: 20%;
     display: inline-block;
     margin: 10px 0 10px 20%;
     vertical-align: middle;
 }
 
-#outline-picker-0 input[type=number]{
+.outline-picker input[type=number]{
     width: 20%;
     display: inline-block;
     margin: 10px 30px 10px 15%;
@@ -247,7 +269,7 @@ i{
     font-size: 16px;
 }
 
-#font-highlight{
+.font-highlight{
     padding: 2px 0;
 }
 
@@ -280,18 +302,6 @@ i{
     padding: 5px 50px;
     margin: 10px auto;
     display: block;
-    text-align: center;
-    background: rgb(213, 241, 241);
-    border: solid black 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#add-paragraph{
-    width: fit-content;
-    padding: 0 5px 5px 5px;
-    display: block;
-    margin: 10px auto 30px auto;
     text-align: center;
     background: rgb(213, 241, 241);
     border: solid black 5px;
@@ -392,6 +402,7 @@ h2{
 
 .excerpt-paragraph{
     text-indent: 24px;
+    padding: 1px 5px;
 }
 
 .bold{

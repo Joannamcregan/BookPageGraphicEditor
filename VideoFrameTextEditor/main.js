@@ -10,10 +10,13 @@ var tabletScreen = document.getElementById("tablet-screen");
 var cover = document.getElementById("cover");
 var excerpt = document.getElementById("excerpt");
 var paragraphInputs = document.getElementById("paragraph-inputs");
+var addParagraphButton = document.getElementById("add-paragraph");
+var grayedOutAddParagraph = document.getElementById("grayed-out-add-paragraph");
 
-var previousTextColors = [];
+// var previousTextColors = [];
 
 var textSectionCounter = 1;
+var textSectionsEntered = 0;
 var textSections = [];
 
 function toggleCoverExcerpt(){
@@ -34,10 +37,6 @@ function toggleCoverExcerpt(){
         cover.classList.add('hidden');
         isParagraphMode = true;
     }
-}
-
-function setFontColor(e) {
-    console.log("set color to " + e.value);
 }
 
 function setBackground(e) {
@@ -85,9 +84,7 @@ function fillCover() {
 }
 
 function updateText(num) {
-    console.log(num);
     let textInput = document.getElementById("text-input-" + num).value;
-    console.log(textInput);
     let outputId = "text-output-" + num;
     if (textSections.includes(outputId)) {
         document.getElementById(outputId).innerText = textInput;
@@ -101,6 +98,11 @@ function updateText(num) {
         document.getElementById("controll-section-" + num).classList.add("flex");
         document.getElementById("enter-paragraph-" + num).innerText = 'update this text';
         textSections.push(outputId);
+        textSectionsEntered++;
+        if (textSectionsEntered === textSectionCounter) {
+            addParagraphButton.classList.remove('hidden');
+            grayedOutAddParagraph.classList.add('hidden');
+        }
     }
 }
 
@@ -199,16 +201,7 @@ function toggleShadow(num) {
 
 function toggleBlur(num) {
     if (document.getElementById("text-output-" + num).style.textShadow) {
-        let alreadyInArray = false;
-        let counter = 0;
-        while (alreadyInArray === false && counter < previousTextColors.length){
-            if (previousTextColors[counter].paragraphNum == num){
-                document.getElementById("text-output-" + num).style.color = previousTextColors[counter].previousColor;
-                alreadyInArray = true;
-            } else {
-                document.getElementById("text-output-" + num).style.color = "black";
-            }
-        }
+        document.getElementById("text-output-" + num).style.color = document.getElementById('font-color-' + num).firstChild.style.color;
         document.getElementById("text-output-" + num).style.textShadow = "";        
         document.getElementById("grayed-out-font-outline-" + num).classList.add("hidden");
         document.getElementById("grayed-out-font-shadow-" + num).classList.add("hidden");
@@ -217,19 +210,6 @@ function toggleBlur(num) {
     } else {        
         let alreadyInArray = false;
         let counter = 0;
-        while (alreadyInArray === false && counter < previousTextColors.length){
-            if (previousTextColors[counter].paragraphNum == num){
-                previousTextColors[counter].previousColor = document.getElementById("text-output-" + num).style.color;
-                alreadyInArray = true;
-            }
-        }        
-        if (alreadyInArray === false) {
-            let previousTextColor = {
-                paragraphNum: num,
-                previousColor: document.getElementById("text-output-" + num).style.color
-            };
-            previousTextColors.push(previousTextColor);
-        }
         document.getElementById("text-output-" + num).style.color = "rgba(0, 0, 0, 0.2)";
         document.getElementById("text-output-" + num).style.textShadow = "0 0 5px black";
         document.getElementById("font-outline-" + num).classList.add("hidden");
@@ -261,45 +241,45 @@ function addParagraph() {
     controllSection.id = "controll-section-" + textSectionCounter;
 //<select onchange="updateFont(0, this)">
     let updateFontSelect = document.createElement('select');
-    updateFontSelect.onchange = "updateFont(" + textSectionCounter + ", this)";
+    updateFontSelect.setAttribute("onchange", "updateFont(" + textSectionCounter + ", this)");
 //<option style="font-family: Arial, Helvetica, sans-serif">Arial</option>
     let updateFontOption = document.createElement('option');
-    updateFontOption.style = "font-family: Arial, Helvetica, sans-serif";
+    updateFontOption.style.fontFamily = "Arial, Helvetica, sans-serif";
     updateFontOption.innerText = 'Arial';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: Verdana, Geneva, Tahoma, sans-serif">Verdana</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: Verdana, Geneva, sans-serif";
+    updateFontOption.style.fontFamily ="Verdana, Geneva, sans-serif";
     updateFontOption.innerText = 'Verdana';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: Tahoma, sans-serif">Tahoma</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: Tahoma, sans-serif";
+    updateFontOption.style.fontFamily ="Tahoma, sans-serif";
     updateFontOption.innerText = 'Tahoma';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: Trebuchet, sans-serif">Trebuchet</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: Trebuchet, sans-serif";
+    updateFontOption.style.fontFamily ="Trebuchet, sans-serif";
     updateFontOption.innerText = 'Trebuchet';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: 'Times New Roman', Times, serif">Times New Roman</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: 'Times New Roman', Times, serif";
+    updateFontOption.style.fontFamily ="'Times New Roman', Times, serif";
     updateFontOption.innerText = 'Times New Roman';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: Georgia, serif">Georgia</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: Georgia, serif";
+    updateFontOption.style.fontFamily ="Georgia, serif";
     updateFontOption.innerText = 'Georgia';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: Garamond, serif">Garamond</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: Garamond, serif";
+    updateFontOption.style.fontFamily = "Garamond, serif";
     updateFontOption.innerText = 'Garamond';
     updateFontSelect.appendChild(updateFontOption);
 //<option style="font-family: 'Courier New', Courier, monospace">Courier New</option>
     updateFontOption = document.createElement('option');
-    updateFontOption.style ="font-family: 'Courier New', Courier, monospace";
+    updateFontOption.style.fontFamily = "'Courier New', Courier, monospace";
     updateFontOption.innerText = 'Courier New';
     updateFontSelect.appendChild(updateFontOption);
     controllSection.appendChild(updateFontSelect);
@@ -310,12 +290,12 @@ function addParagraph() {
     fontSizeInput.min = "10";
     fontSizeInput.max = "100";
     fontSizeInput.value = "16";
-    fontSizeInput.onchange = "updateFontSize(" + textSectionCounter + ", this)";
+    fontSizeInput.setAttribute("onchange", "updateFontSize(" + textSectionCounter + ", this)");
     controllSection.appendChild(fontSizeInput);
 //<button class="controll-button" onclick="toggleClass(0, 'bold')">
     let button = document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "toggleClass(" + textSectionCounter + ", 'bold')";
+    button.setAttribute("onclick", "toggleClass(" + textSectionCounter + ", 'bold')");
 //<span><strong><i class="fa-solid fa-bold"></i></strong></span>
     let buttonSpan = document.createElement('span');
     let buttonStrong = document.createElement('strong');
@@ -330,7 +310,7 @@ function addParagraph() {
 //<span><strong><i class="fa-solid fa-italic"></i></strong></span>
     button = document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "toggleClass(" + textSectionCounter + ", 'italic')";
+    button.setAttribute("onclick", "toggleClass(" + textSectionCounter + ", 'italic')");
     buttonSpan = document.createElement('span');
     buttonStrong = document.createElement('strong');
     buttonIcon = document.createElement('i');
@@ -344,7 +324,7 @@ function addParagraph() {
 //<span><strong><i class="fa-solid fa-underline"></i></strong></span>
     button = document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "toggleClass(" + textSectionCounter + ", 'underline')";
+    button.setAttribute("onclick", "toggleClass(" + textSectionCounter + ", 'underline')");
     buttonSpan = document.createElement('span');
     buttonStrong = document.createElement('strong');
     buttonIcon = document.createElement('i');
@@ -359,7 +339,7 @@ function addParagraph() {
 //<button class="controll-button" onclick="openPicker(0, 'font-color-picker-')">
     button = document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "openPicker(" + textSectionCounter + ", 'font-color-picker-')";
+    button.setAttribute("onclick", "openPicker(" + textSectionCounter + ", 'font-color-picker-')");
 //<span id="font-color-0"><strong>Font Color</strong></span>
     buttonSpan = document.createElement('span');
     buttonSpan.id = "font-color-" + textSectionCounter;
@@ -384,14 +364,14 @@ function addParagraph() {
     pickerDiv.appendChild(pickerInput);
 //<button onclick="updateFontColor(0, this)" class="set-button first-of-two">set color</button>
     button = document.createElement('button');
-    button.onclick = "updateFontColor(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "updateFontColor(" + textSectionCounter + ", this)");
     button.classList.add('set-button');
     button.classList.add('first-of-two');
     button.innerText = 'set color';
     pickerDiv.appendChild(button);
 //<button onclick="closeParent(this)" class="close-button second-of-two">close</button>
     button = document.createElement('button');
-    button.onclick = "closeParent(this)";
+    button.setAttribute("onclick", "closeParent(this)");
     button.classList.add('close-button');
     button.classList.add('second-of-two');
     button.innerText = 'close';
@@ -401,16 +381,18 @@ function addParagraph() {
 //<span id="highlight-color-0"><strong style="background-color: #f1f19c" style="background-size: fit-content">Highlight</strong></span>
     button = document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "openPicker(" + textSectionCounter + ", 'highlight-color-picker-')";
+    button.setAttribute("onclick", "openPicker(" + textSectionCounter + ", 'highlight-color-picker-')");
+
     buttonSpan = document.createElement('span');
     buttonSpan.id = "highlight-color-" + textSectionCounter;
     buttonStrong = document.createElement('strong');
-    buttonStrong.style ="background-color: #f1f19c";
-    buttonStrong.style += "background-size: fit-content";
+    buttonStrong.style.backgroundColor ="#f1f19c";
+    buttonStrong.style.backgroundSize = "fit-content";
+    console.log(buttonStrong.style);
     buttonStrong.innerText = 'Highlight';
     buttonSpan.appendChild(buttonStrong);
     button.appendChild(buttonSpan);
-    controllSection.appendChild(button);
+    rowDiv.appendChild(button);
 //<div id="highlight-color-picker-0" class="color-picker hidden">
     pickerDiv = document.createElement('div');
     pickerDiv.id = "highlight-color-picker-" + textSectionCounter;
@@ -427,21 +409,21 @@ function addParagraph() {
     pickerDiv.appendChild(pickerInput);
 //<button onclick="updateHighlightColor(0, this)" class="set-button first-of-three">set highlight</button>
     button = document.createElement('button');
-    button.onclick = "updateHighlightColor(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "updateHighlightColor(" + textSectionCounter + ", this)");
     button.classList.add('set-button');
     button.classList.add('first-of-three');
     button.innerText = 'set highlight';
     pickerDiv.appendChild(button);
 //<button onclick="removeHighlight(0, this)" class="remove-button second-two">remove</button>
     button = document.createElement('button');
-    button.onclick = "removeHighlight(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "removeHighlight(" + textSectionCounter + ", this)");
     button.classList.add("remove-button");
     button.classList.add('second-two');
     button.innerText = 'remove';
     pickerDiv.appendChild(button);
 //<button onclick="closeParent(this)" class="close-button second-two">close</button>
     button = document.createElement('button');
-    button.onclick = "closeParent(this)";
+    button.setAttribute("onclick", "closeParent(this)");
     button.classList.add('close-button');
     button.classList.add('second-two');
     button.innerText = 'close';
@@ -451,12 +433,12 @@ function addParagraph() {
 //<span id="ombrelight-color-0"><strong style="background-image: linear-gradient(#9cf1a2, #cb9cf1)" style="background-size: fit-content">Ombrelight</strong></span>
     button =  document.createElement('button');
     button.classList.add('controll-button');
-    button.onclick = "openPicker(" + textSectionCounter + ", 'ombrelight-color-picker-')";
+    button.setAttribute("onclick", "openPicker(" + textSectionCounter + ", 'ombrelight-color-picker-')");
     buttonSpan = document.createElement('span');
     buttonSpan.id = "ombrelight-color-" + textSectionCounter;
     buttonStrong = document.createElement('strong');
-    buttonStrong.style = "background-image: linear-gradient(#9cf1a2, #cb9cf1)";
-    buttonStrong.style += "background-size: fit-content";
+    buttonStrong.style.backgroundImage = "linear-gradient(#9cf1a2, #cb9cf1)";
+    buttonStrong.style.backgroundSize = "fit-content";
     buttonStrong.innerText = 'Ombrelight';
     buttonSpan.appendChild(buttonStrong);
     button.appendChild(buttonSpan);
@@ -482,21 +464,21 @@ function addParagraph() {
     pickerDiv.appendChild(pickerInput);
 //<button onclick="updateOmbrelightGradient(0, this)" class="set-button first-of-three">set gradient</button>
     button = document.createElement('button');
-    button.onclick = "updateOmbrelightGradient(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "updateOmbrelightGradient(" + textSectionCounter + ", this)");
     button.classList.add('set-button');
     button.classList.add('first-of-three');
     button.innerText = 'set gradient';
     pickerDiv.appendChild(button);
 //<button onclick="removeOmbrelight(0, this)" class="remove-button second-two">remove</button>
     button = document.createElement('button');
-    button.onclick = "removeOmbrelight(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "removeOmbrelight(" + textSectionCounter + ", this)");
     button.classList.add('remove-button');
     button.classList.add('second-two');
     button.innerText = 'remove';
     pickerDiv.appendChild(button);
 //<button onclick="closeParent(this)" class="close-button second-two">close</button>
     button = document.createElement('button');
-    button.onclick = "closeParent(this)";
+    button.setAttribute("onclick", "closeParent(this)");
     button.classList.add('close-button');
     button.classList.add('second-two');
     button.innerText = 'close';
@@ -509,13 +491,14 @@ function addParagraph() {
     button = document.createElement('button');
     button.classList.add('controll-button');
     button.id = "font-outline-" + textSectionCounter;
-    button.onclick = "openPicker(" + textSectionCounter + ", 'outline-picker-')";    
+    button.setAttribute("onclick", "openPicker(" + textSectionCounter + ", 'outline-picker-')");    
 //<span style="text-shadow: 0 0 2px #ff005d"><strong>Outline</strong></span>
     buttonSpan = document.createElement('span');
-    buttonSpan.style = "text-shadow: 0 0 2px #ff005d";
+    buttonSpan.style.textShadow = "0 0 2px #ff005d";
     buttonStrong = document.createElement('strong');
     buttonStrong.innerText = 'Outline';
     buttonSpan.appendChild(buttonStrong);
+    button.appendChild(buttonSpan);
     rowDiv.appendChild(button);
 //<div id="outline-picker-0" class="color-picker hidden">
     pickerDiv = document.createElement('div');
@@ -542,7 +525,7 @@ function addParagraph() {
     pickerDiv.appendChild(br);
 //<button onclick="addOutline(0, this)" id="add-outline-0" class="set-button first-of-three">set outline</button>
     button = document.createElement('button');
-    button.onclick = "addOutline(" + textSectionCounter + ', this)';
+    button.setAttribute("onclick", "addOutline(" + textSectionCounter + ', this)');
     button.id = "add-outline-" + textSectionCounter;
     button.classList.add('set-button');
     button.classList.add('first-of-three');
@@ -550,7 +533,7 @@ function addParagraph() {
     pickerDiv.appendChild(button);
 //<button onclick="removeOutline(0, this)" id="remove-outline-0" class="remove-button second-two">remove outline</button>
     button = document.createElement('button');
-    button.onclick = "removeOutline(" + textSectionCounter + ", this)";
+    button.setAttribute("onclick", "removeOutline(" + textSectionCounter + ", this)");
     button.id = "remove-outline-" + textSectionCounter;
     button.classList.add('remove-button');
     button.classList.add('second-of-two');
@@ -558,7 +541,7 @@ function addParagraph() {
     pickerDiv.appendChild(button);
 //<button onclick="closeParent(this)" class="close-button second-two">close</button>
     button = document.createElement('button');
-    button.onclick = "closeParent(this)";
+    button.setAttribute("onclick", "closeParent(this)");
     button.classList.add('remove-button');
     button.classList.add('second-of-two');
     button.innerText = 'close';
@@ -570,7 +553,7 @@ function addParagraph() {
     hiddenDiv.classList.add('grayed-out');
     hiddenDiv.id = "grayed-out-font-outline-" + textSectionCounter;
     let hiddenDivSpan = document.createElement('span');
-    hiddenDivSpan.style = "text-shadow: 0 0 2px #ff005d";
+    hiddenDivSpan.style.textShadow = "0 0 2px #ff005d";
     let hiddenDivStrong = document.createElement('strong');
     hiddenDivStrong.innerText = 'Outline';
     hiddenDivSpan.appendChild(hiddenDivStrong);
@@ -580,10 +563,10 @@ function addParagraph() {
     button = document.createElement('button');
     button.classList.add('controll-button');
     button.id = "font-shadow-" + textSectionCounter;
-    button.onclick = "toggleShadow(" + textSectionCounter + ")";
+    button.setAttribute("onclick", "toggleShadow(" + textSectionCounter + ")");
 //<span style="text-shadow: 1px 1px 3px #215271"><strong>Shadow</strong></span>
     buttonSpan = document.createElement('span');
-    buttonSpan.style = "text-shadow: 1px 1px 3px #215271";
+    buttonSpan.style.textShadow = "1px 1px 3px #215271";
     buttonStrong = document.createElement('strong');
     buttonStrong.innerText = 'Shadow';
     buttonSpan.appendChild(buttonStrong);
@@ -595,7 +578,7 @@ function addParagraph() {
     hiddenDiv.classList.add('grayed-out');
     hiddenDiv.id = "grayed-out-font-shadow-" + textSectionCounter;
     hiddenDivSpan = document.createElement('span');
-    hiddenDivSpan.style = "text-shadow: 1px 1px 3px #215271";
+    hiddenDivSpan.style.textShadow = "1px 1px 3px #215271";
     hiddenDivStrong = document.createElement('strong');
     hiddenDivStrong.innerText = 'Shadow';
     hiddenDivSpan.appendChild(hiddenDivStrong);
@@ -605,10 +588,11 @@ function addParagraph() {
     button = document.createElement('button');
     button.classList.add('controll-button');
     button.id = "font-blurred-" + textSectionCounter;
-    button.onclick = "toggleBlur(" + textSectionCounter + ")";
+    button.setAttribute("onclick", "toggleBlur(" + textSectionCounter + ")");
 //<span style="color: rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black">Blur</span>
     buttonSpan = document.createElement('span');
-    buttonSpan.style = "color: rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black";
+    buttonSpan.style.color = "rgba(0, 0, 0, 0.2)";
+    buttonSpan.style.textShadow = "0 0 5px black";
     buttonSpan.innerText = 'Blur';
     button.appendChild(buttonSpan);
     rowDiv.appendChild(button);
@@ -618,7 +602,7 @@ function addParagraph() {
     hiddenDiv.classList.add('grayed-out');
     hiddenDiv.id = "grayed-out-font-blurred-" + textSectionCounter;
     hiddenDivSpan = document.createElement('span');
-    hiddenDivSpan.style = "color: rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black";
+    hiddenDivSpan.style.color = "rgba(0, 0, 0, 0.2); text-shadow: 0 0 5px black";
     hiddenDivSpan.innerText = 'Blur';
     hiddenDiv.appendChild(hiddenDivSpan);
     rowDiv.appendChild(hiddenDiv);
@@ -628,17 +612,19 @@ function addParagraph() {
     button = document.createElement('button');
     button.id = "enter-paragraph-" + textSectionCounter;
     button.classList.add('enter-paragraph');
-    button.onclick = "updateText" + textSectionCounter;
-console.log(button.onclick);
+    button.setAttribute("onclick", "updateText(" + textSectionCounter +")");
     button.innerText = 'enter this text';
     paragraphInput.appendChild(button);
 //<button id="delete-paragraph-0" class="delete-paragraph" onclick="removeText(0)"><p>delete paragraph</p></button>
     button = document.createElement('button');
     button.id = "enter-paragraph-" + textSectionCounter;
     button.classList.add('delete-paragraph');
-    button.onclick = "removeText(" + textSectionCounter + ")";
+    button.setAttribute("onclick", "removeText(" + textSectionCounter + ")");
     button.innerText = 'delete paragraph';
     paragraphInput.appendChild(button);
-console.log(textSectionCounter);
     paragraphInputs.appendChild(paragraphInput);
+
+    textSectionCounter++;
+    addParagraphButton.classList.add('hidden');
+    grayedOutAddParagraph.classList.remove('hidden');
 }
