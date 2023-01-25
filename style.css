@@ -1,0 +1,645 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+body{
+    background: rgb(51, 51, 51);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    overflow-x: hidden;
+}
+
+.background-color-picker{
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    border: solid #777 5px;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 8px black;
+}
+
+.background-color-picker input[type=color]{
+    width: 20%;
+    height: 30px;
+    display: block;
+    margin: 10px auto;
+}
+
+.background-color-picker button{
+    width: 25%;
+    display: inline-block;
+    padding: 2px 5px;
+    background: white;
+    border-radius: 5px;
+}
+
+#plain-color-submit{
+    background-color: rgb(213, 241, 241);
+    margin: 10px 0 10px 20%;
+    cursor: pointer;
+}
+
+#plain-color-cancel{
+    background-color: rgb(247, 212, 212);
+    margin: 10px 0 10px 10%;
+    cursor: pointer;
+}
+
+.input-section{
+    width: 400px;
+    height: 580px;
+    margin: 50px 0 50px 50px;
+}
+
+#paragraph-input-section{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 485px;
+    background: #999;
+    border-top: solid #999 5px;
+    border-right: solid #999 5px;
+    border-bottom: solid #999 2px;
+    padding-top: 10px;
+}
+
+.paragraph-input{
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    margin: 0 auto 30px auto;
+    display: block;
+    background: #444;
+}
+
+#input-heading{
+    margin-top: 3px;
+}
+
+.input-extra input{
+    width: 320px;
+    border: solid #444 5px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 0;
+    margin: 10px auto;
+    display: block;
+}
+
+.controll-section{
+    /* display: flex; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 320px;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px;
+    background: white;
+    border: solid black 5px;
+    border-radius: 5px;
+}
+
+.controll-section input[type=number]{
+    width: 40px;
+    text-align: center;
+    margin: 5px 0px 5px 5px;
+    padding: 2px 0;
+    display: inline-block;
+    /* border-right: solid #999 1px; */
+}
+
+.controll-section input[type=text]{
+    width: 120px;
+    text-align: left;
+    margin: 5px 0px 5px 5px;
+    padding: 2px 2px;
+    display: inline-block;
+    /* border-right: solid #999 1px; */
+}
+
+.font-color{
+    width: fit-content;
+    border: none;
+    margin: 5px auto 0 auto;
+    padding-top: 5px;
+    background: white;
+    display: inline-block;
+}
+
+.controll-button{
+    padding: 2px 5px;
+    margin: 5px auto 5px auto;
+    cursor: pointer;
+    border: none;
+    /* border-right: solid #999 1px; */
+    background: white;
+    display: inline-block;
+}
+
+.controll-button:hover{
+    background: #40576d1a;
+}
+
+.controll-button:active{
+    background: #73b1e333;
+    color: #5271ff;
+}
+
+.grayed-out{
+    /* width: fit-content; */
+    background: rgb(228, 228, 228);
+    padding: 1px 2px;
+    margin: 5px auto 5px auto;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.grayed-out-button{
+    background: rgb(228, 228, 228);
+    padding: 0 5px 5px 5px;
+    width: fit-content;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    display: block;
+    border: solid #555 5px;
+}
+
+.add-paragraph{
+    width: fit-content;
+    padding: 0 5px 5px 5px;
+    display: block;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    background: rgb(213, 241, 241);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.color-picker{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    border: solid #777 5px;
+    border-radius: 5px;
+    z-index: 3;
+    box-shadow: 0px 0px 8px black;
+    width: 250px;
+}
+
+.color-picker h3{
+    text-align: center;
+}
+
+.color-picker input{
+    width: 20%;
+    height: 30px;
+    display: block;
+    margin: 10px auto;
+}
+
+.set-button{
+    background-color: rgb(213, 241, 241);
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.remove-button{
+    background-color: rgb(234, 234, 234);
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.close-button{
+    background-color: rgb(247, 212, 212);
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.first-of-two{
+    width: 40%;
+    margin: 10px 5%;
+}
+
+.second-of-two{
+    width: 40%;
+    margin: 10px 2%;
+}
+
+.first-of-three{
+    width: 30%;
+    margin: 10px 2%;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.second-two{
+    width: 25%;
+    margin: 10px 2%;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.outline-picker input[type=color]{
+    width: 20%;
+    display: inline-block;
+    margin: 10px 0 10px 20%;
+    vertical-align: middle;
+}
+
+.outline-picker input[type=number]{
+    width: 20%;
+    display: inline-block;
+    margin: 10px 30px 10px 15%;
+    vertical-align: middle;
+}
+
+i{
+    font-size: 16px;
+}
+
+.font-highlight{
+    padding: 2px 0;
+}
+
+.text-input{
+    width: 330px;
+    height: 100px;
+    display: block;
+    margin: 10px auto 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid #999 5px;
+    background: white;
+    box-shadow: #00000059 0px 5px 15px;
+}
+
+.hidden{
+    display: none;
+}
+
+.block{
+    display: block;
+}
+
+.flex{
+    display: flex;
+}
+
+#toggle-cover-text{
+    width: fit-content;
+    padding: 5px 50px;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    background: rgb(213, 241, 241);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enter-paragraph{
+    width: fit-content;
+    padding: 5px;
+    /* display: block; */
+    margin: 10px auto;
+    text-align: center;
+    background: rgb(195, 231, 219);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 18px;
+}
+
+.delete-paragraph{
+    width: fit-content;
+    padding: 5px;
+    /* display: block; */
+    margin: 10px auto;
+    text-align: center;
+    background: rgb(247, 212, 212);
+    border: solid black 5px;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-size: 12px;
+}
+
+.giant-text{
+    font-size: 32px;
+}
+
+.heading-wrapper{
+    background: #333;
+    padding-bottom: 10px;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    top: 0;
+}
+
+h2{
+    text-align: center;
+    color: rgb(213, 213, 213);
+    width: 100%;
+}
+
+#output-section{
+    margin: 0px 50px 50px 50px;
+    display: grid;
+}
+
+.output-section-small{
+    width: 324px;
+    height: 576px;
+}
+
+.output-section-large{
+    height: 110%;
+    width: 110%;
+    margin: 0;
+}
+
+#tablet{
+    background-image: linear-gradient(black, #333, #111, black);
+    border-radius: 10px;
+    grid-column: 5 / span 6;
+    grid-row: 1;
+    z-index: 2;
+    transform: rotate(2deg);
+    box-shadow: 2px 8px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: solid 1px black;
+    margin: 50px 30px 0 auto;
+}
+
+#excerpt{
+    position: static;
+    width: 100%;
+    height: 95%;
+}
+
+#title-section{
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    width: 100%;
+    /* display: block; */
+    margin: 5 auto 0 auto;
+}
+
+
+.tablet-small{
+    width: 270px;
+    height: 414px;
+}
+
+#tablet-screen{    
+    margin: 15px auto auto auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.page-small{
+    width: 244px;
+    height: 365px;
+    background-color: white;
+}
+
+.excerpt-paragraph{
+    text-indent: 24px;
+    padding: 1px 5px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.background-option-section{
+    width: 330px;
+    height: 576px;
+    margin: 50px 0 50px 50px;
+    background: #999;   
+}
+
+#background-options{
+    width: 330px;
+    height: 535px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-top: solid 5px #999;
+    border-right: solid 5px #999;
+    border-left: solid 5px #999;
+    border-bottom: none;
+}
+
+.background-option{
+    padding: 10px 25px 10px 25px;
+    margin: 10px auto 20px auto;
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#cover-section{
+    width: fit-content;
+    background: #999;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+#cover{
+    width: 100%;
+    height: 100%;
+}
+
+.fit-cover{
+    background-image: url('../projectSpec/cover.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+}
+
+.fill-cover{
+    background-image: url('../projectSpec/cover.jpg');
+    background-size: cover;
+}
+
+.background-option input[type=color]{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.background-sample{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    border: solid black 2px;
+    border-radius: 50%;
+}
+
+.background-option p{
+    text-align: center;
+    margin: 0 auto 0 auto;
+    max-width: 100px;
+}
+
+.background-plain{
+    background: white;
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-gold-sheet{
+    background-image: url("img/goldSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-rosegold-sheet{
+    background-image: url("img/rosegoldSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-silver-sheet{
+    background-image: url("img/silverSheetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-fur-blanket{
+    background-image: url("img/furBlanketBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-plaid-blanket{
+    background-image: url("img/plaidBlanketBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-red-violet-ink{
+    background-image: url("img/redVioletInkBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-glitter-confetti{
+    background-image: url("img/glitterConfettiBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-pastel-glitter{
+    background-image: url("img/pastelGlitterBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-gold-foil{
+    background-image: url("img/goldFoilBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-green-and-orange-watercolor{
+    background-image: url("img/greenAndOrangeWatercolorBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-slate-blue-watercolor{
+    background-image: url("img/slateBlueWatercolorBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-marbled-ink{
+    background-image: url("img/marbledInkBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-jagged-marble{
+    background-image: url("img/jaggedMarbleBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-wood{
+    background-image: url("img/woodBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-amber-space{
+    background-image: url("img/amberSpaceBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-indigo-space{
+    background-image: url("img/indigoSpaceBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-calm-clouds{
+    background-image: url("img/calmCloudsBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-clear-sunset{
+    background-image: url("img/clearSunsetBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-calm-water{
+    background-image: url("img/calmWaterBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-black-steam{
+    background-image: url("img/blackSteamBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
+
+.background-black-rain{
+    background-image: url("img/blackRainBackground.jpg");
+    background-size: cover;
+    padding: 20px 0 20px 0;
+}
